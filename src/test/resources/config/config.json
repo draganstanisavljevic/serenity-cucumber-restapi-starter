@@ -1,0 +1,11 @@
+{
+  "pet_api": {
+    "baseUrl": "https://petstore.swagger.io/v2"
+  },
+  "store_api": {
+    "baseUrl": "https://petstore.swagger.io/v2"
+  },
+  "user_api": {
+    "baseUrl": "https://petstore.swagger.io/v2"
+  }
+}
