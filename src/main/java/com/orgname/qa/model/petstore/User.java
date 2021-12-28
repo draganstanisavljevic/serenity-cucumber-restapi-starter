@@ -11,7 +11,7 @@
  */
 
 
-package com.orgname.qa.model;
+package com.orgname.qa.model.petstore;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * User
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-25T15:43:43.616+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
 public class User {
   @SerializedName("id")
   private Long id = null;
@@ -199,7 +199,7 @@ public class User {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -244,7 +244,7 @@ public class User {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

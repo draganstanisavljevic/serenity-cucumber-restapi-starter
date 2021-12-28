@@ -11,27 +11,31 @@
  */
 
 
-package com.orgname.qa.model;
-
-
-
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModelProperty;
+package com.orgname.qa.model.petstore;
 
 import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Category
+ * Tag
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-25T15:43:43.616+02:00")
-public class Category {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
+public class Tag {
   @SerializedName("id")
   private Long id = null;
 
   @SerializedName("name")
   private String name = null;
 
-  public Category id(Long id) {
+  public Tag id(Long id) {
     this.id = id;
     return this;
   }
@@ -49,7 +53,7 @@ public class Category {
     this.id = id;
   }
 
-  public Category name(String name) {
+  public Tag name(String name) {
     this.name = name;
     return this;
   }
@@ -69,16 +73,16 @@ public class Category {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Category category = (Category) o;
-    return Objects.equals(this.id, category.id) &&
-        Objects.equals(this.name, category.name);
+    Tag tag = (Tag) o;
+    return Objects.equals(this.id, tag.id) &&
+        Objects.equals(this.name, tag.name);
   }
 
   @Override
@@ -90,7 +94,7 @@ public class Category {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Category {\n");
+    sb.append("class Tag {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -102,7 +106,7 @@ public class Category {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -11,24 +11,22 @@
  */
 
 
-package com.orgname.qa.model;
+package com.orgname.qa.model.petstore;
 
-import java.time.OffsetDateTime;
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-25T15:43:43.616+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
 public class Order {
   @SerializedName("id")
   private Long id = null;
@@ -40,7 +38,7 @@ public class Order {
   private Integer quantity = null;
 
   @SerializedName("shipDate")
-  private OffsetDateTime shipDate = null;
+  private String shipDate = null;
 
   /**
    * Order Status
@@ -151,7 +149,7 @@ public class Order {
     this.quantity = quantity;
   }
 
-  public Order shipDate(OffsetDateTime shipDate) {
+  public Order shipDate(String shipDate) {
     this.shipDate = shipDate;
     return this;
   }
@@ -161,11 +159,11 @@ public class Order {
    * @return shipDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getShipDate() {
+  public String getShipDate() {
     return shipDate;
   }
 
-  public void setShipDate(OffsetDateTime shipDate) {
+  public void setShipDate(String shipDate) {
     this.shipDate = shipDate;
   }
 
@@ -207,7 +205,7 @@ public class Order {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -248,7 +246,7 @@ public class Order {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

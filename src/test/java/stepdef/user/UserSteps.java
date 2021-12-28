@@ -2,22 +2,37 @@ package stepdef.user;
 
 import api.user.UserApi;
 import api.user.UserPostApi;
+import com.orgname.qa.model.petstore.Order;
+import com.orgname.qa.model.petstore.User;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import lib.restassured.ResponseAssertion;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
+import org.assertj.core.api.Assertions;
+import org.assertj.core.api.SoftAssertions;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static api.store.StorePostApi.CREATE_ORDER_INPUT;
+import static lib.assertions.AssertionMessages.isNull;
+import static lib.restassured.Request.then;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserSteps {
 
-    public Response response;
+    public ValidatableResponse response;
+
+    private final SoftAssertions softAssert = new SoftAssertions();
 
     @Steps
     UserApi userApi;
+
+    @Steps
+    ResponseAssertion responseAssertion;
 
     @Steps
     UserPostApi userPostApi;
@@ -40,13 +55,27 @@ public class UserSteps {
         response = userApi.iLogout();
     }
 
-    @Then("I should receive response code {word} user")
-    public void iGetResponseStatus(String responseCode) {
-        assertThat(response.getStatusCode()).isEqualTo(Integer.valueOf(responseCode));
-    }
-
+    @Given("There is an user in database")
     @When("I create user")
     public void iCreateUser() {
         response = userPostApi.createUser();
+    }
+
+    @Then("I should see proper details of created user in response")
+    public void iShouldSeeProperDetailsOfCreatedOrderInResponse(){
+        responseAssertion.assertResponseSuccess();
+        User actualUser = then().extract()
+                .as(User.class);
+        User expectedUser = Serenity.sessionVariableCalled(CREATE_ORDER_INPUT);
+        Assertions.assertThat(actualUser).as(isNull("User")).isNotNull();
+        softAssert.assertThat(actualUser.getId()).as("User Id").isEqualTo(expectedUser.getId());
+        softAssert.assertThat(actualUser.getFirstName()).as("First name").isEqualTo(expectedUser.getFirstName());
+        softAssert.assertThat(actualUser.getLastName()).as("Last name").isEqualTo(expectedUser.getLastName());
+        softAssert.assertThat(actualUser.getUserStatus()).as("User status").isEqualTo(expectedUser.getUserStatus());
+        softAssert.assertThat(actualUser.getEmail()).as("Email").isEqualTo(expectedUser.getEmail());
+        softAssert.assertThat(actualUser.getPassword()).as("Password").isEqualTo(expectedUser.getPassword());
+        softAssert.assertThat(actualUser.getPhone()).as("Phone").isEqualTo(expectedUser.getPhone());
+        softAssert.assertThat(actualUser.getUsername()).as("Username").isEqualTo(expectedUser.getUsername());
+        softAssert.assertAll();
     }
 }

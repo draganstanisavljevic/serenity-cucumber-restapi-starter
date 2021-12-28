@@ -1,7 +1,7 @@
-package api.pet;
+package api.store;
 
 import com.orgname.qa.configuration.Services;
-import com.orgname.qa.model.petstore.Pet;
+import com.orgname.qa.model.petstore.Order;
 import com.orgname.qa.utils.helper.PetApiDataHelper;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -12,21 +12,19 @@ import net.thucydides.core.annotations.Step;
 
 import static lib.restassured.Request.post;
 
-public class PetPostApi {
+public class StorePostApi {
 
-    private static final String URL_CREATE = "/pet";
-    public static final String CREATE_PET_INPUT = "createPetInput";
+    private static final String URL_CREATE_ORDER = "/store/order";
+    public static final String CREATE_ORDER_INPUT = "createUserInput";
     public ValidatableResponse response;
     RequestSpecification requestSpec = RestAssuredFactory.getRestClient(Services.PET);
 
     PetApiDataHelper petApiDataHelper = new PetApiDataHelper();
-
-    @Step("Create pet")
-    public ValidatableResponse createPet() {
-        Pet pet = petApiDataHelper.setPet();
-        Serenity.setSessionVariable(CREATE_PET_INPUT).to(pet);
-        response = post(requestSpec, URL_CREATE, pet);
+    @Step("Create order")
+    public ValidatableResponse createOrder() {
+        Order order = petApiDataHelper.setOrder();
+        Serenity.setSessionVariable(CREATE_ORDER_INPUT).to(order);
+        response = post(requestSpec, URL_CREATE_ORDER, order);
         return response;
     }
-
 }
