@@ -1,7 +1,7 @@
 package lib.restassured;
 
-import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.MultiPartSpecification;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.core.Serenity;
 
@@ -40,6 +40,21 @@ public class Request {
         ValidatableResponse response = requestSpec
                 .body(body)
                 .when().post(url).then();
+        Serenity.setSessionVariable(LAST_RESPONSE).to(response);
+        return response;
+    }
+
+    public static ValidatableResponse post(final RequestSpecification rs,
+                                           final String url,
+                                           final MultiPartSpecification multiPart) {
+        ValidatableResponse response = rs.contentType(MULTIPART_CONTENT).multiPart(multiPart).post(url).then();
+        Serenity.setSessionVariable(LAST_RESPONSE).to(response);
+        return response;
+    }
+
+    public static ValidatableResponse postSoap(final RequestSpecification rs, final String url, final Object body) {
+        ValidatableResponse response = rs.contentType(TEXT_XML_CONTENT).body(body)
+                .post(String.format("%s/converter.asmx", url)).then();
         Serenity.setSessionVariable(LAST_RESPONSE).to(response);
         return response;
     }
