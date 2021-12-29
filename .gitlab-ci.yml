@@ -1,0 +1,13 @@
+include:
+  - project: 'qa/pipeline-templates'
+    file: 'templates/automation/gitlab-ci-automation-template.yml'
+
+variables:
+  JIRA_PROJECT_KEY: 'NGCOMCC'
+
+commerce_scpq:
+  extends: .tests_with_custom_path_rules
+  variables:
+    TAGS_EXPRESSION: '@CommerceScpq'
+    CUSTOM_PATH_ONE: "**/backend/commerce/cpq/scpq/**/*"
+

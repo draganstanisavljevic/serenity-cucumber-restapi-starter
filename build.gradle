@@ -1,3 +1,5 @@
+import groovy.json.*
+
 defaultTasks 'clean', 'test', 'aggregate'
 
 repositories {
@@ -55,11 +57,15 @@ test {
     systemProperties System.getProperties()
 }
 
+def swaggerFile = new File(swaggerUrlFile)
+def swaggerProjects = new JsonSlurper().parse(swaggerFile)
+
+
 task generate(type: Exec) {
-    //for documentation: https://openapi-generator.tech/docs/generators/java/
+    //for documentation: https://github.com/swagger-api/swagger-codegen#selective-generation
 
     commandLine 'java', '-jar', './swagger-codegen/swagger-codegen-cli.jar', 'generate',
-            '-i', 'http://petstore.swagger.io/v2/swagger.json', '--model-package', 'com.orgname.qa.model.' + packageName,
+            '-i', swaggerProjects.get(projectName), '--model-package', 'com.orgname.qa.model.' + packageName,
             '-l', 'java', '-Dmodels', '-DmodelTests=false', '-DmodelDocs=false'
 
 }
