@@ -1,14 +1,13 @@
 package stepdef.user;
 
-import api.user.UserApi;
-import api.user.UserPostApi;
-import com.orgname.qa.model.petstore.Order;
+import com.orgname.qa.api.user.UserApi;
+import com.orgname.qa.api.user.UserPostApi;
 import com.orgname.qa.model.petstore.User;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.ValidatableResponse;
-import lib.restassured.ResponseAssertion;
+import com.orgname.qa.lib.restassured.ResponseAssertion;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import org.assertj.core.api.Assertions;
@@ -17,9 +16,9 @@ import org.assertj.core.api.SoftAssertions;
 import java.util.HashMap;
 import java.util.Map;
 
-import static api.store.StorePostApi.CREATE_ORDER_INPUT;
-import static lib.assertions.AssertionMessages.isNull;
-import static lib.restassured.Request.then;
+import static com.orgname.qa.api.store.StorePostApi.CREATE_ORDER_INPUT;
+import static com.orgname.qa.lib.assertions.AssertionMessages.isNull;
+import static com.orgname.qa.lib.restassured.Request.then;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserSteps {

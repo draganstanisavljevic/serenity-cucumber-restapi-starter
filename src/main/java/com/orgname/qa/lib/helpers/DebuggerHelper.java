@@ -1,4 +1,4 @@
-package lib.helpers;
+package com.orgname.qa.lib.helpers;
 
 import java.lang.management.ManagementFactory;
 import java.util.regex.Pattern;

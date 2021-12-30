@@ -1,7 +1,7 @@
 package stepdef.common;
 
 import io.cucumber.java.en.Then;
-import lib.restassured.ResponseAssertion;
+import com.orgname.qa.lib.restassured.ResponseAssertion;
 import net.thucydides.core.annotations.Steps;
 import org.springframework.http.HttpStatus;
 

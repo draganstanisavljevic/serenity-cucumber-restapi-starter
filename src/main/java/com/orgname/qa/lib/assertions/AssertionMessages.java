@@ -1,4 +1,4 @@
-package lib.assertions;
+package com.orgname.qa.lib.assertions;
 
 public class AssertionMessages {
 

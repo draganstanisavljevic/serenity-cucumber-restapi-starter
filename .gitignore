@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/java,gradle,intellij
+# Created by https://www.gitignore.io/com.orgname.qa.api/java,gradle,intellij
 # Edit at https://www.gitignore.io/?templates=java,gradle,intellij
 
 ### Intellij ###
@@ -29,7 +29,7 @@ out/
 target/
 tmp/
 
-# mpeltonen/sbt-idea plugin
+# mpeltonen/sbt-idea lib.plugin
 .idea_modules/
 
 
@@ -37,10 +37,10 @@ tmp/
 auth0_clients*.json
 users*.json
 
-# JIRA plugin
-atlassian-ide-plugin.xml
+# JIRA lib.plugin
+atlassian-ide-lib.plugin.xml
 
-# Crashlytics plugin (for Android Studio and IntelliJ)
+# Crashlytics lib.plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
@@ -94,7 +94,7 @@ gradlew.bat
 ### Gradle Patch ###
 **/build/
 
-# End of https://www.gitignore.io/api/java,gradle,intellij
+# End of https://www.gitignore.io/com.orgname.qa.api/java,gradle,intellij
 
 #enerate files
 enerate

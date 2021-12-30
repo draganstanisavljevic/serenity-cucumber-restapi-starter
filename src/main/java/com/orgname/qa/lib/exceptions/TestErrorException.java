@@ -1,4 +1,4 @@
-package lib.exceptions;
+package com.orgname.qa.lib.exceptions;
 
 /**
  * To be used to re-throw an error captured in catch section of try-catch block with custom error message.

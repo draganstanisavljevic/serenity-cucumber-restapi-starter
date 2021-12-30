@@ -2,7 +2,7 @@ package stepdef.hooks;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import lib.configuration.ConfigurationProvider;
+import com.orgname.qa.lib.configuration.ConfigurationProvider;
 
 public class Hooks {
 

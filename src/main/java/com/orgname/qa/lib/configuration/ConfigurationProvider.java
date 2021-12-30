@@ -1,7 +1,7 @@
-package lib.configuration;
+package com.orgname.qa.lib.configuration;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import lib.helpers.JsonHelper;
+import com.orgname.qa.lib.helpers.JsonHelper;
 
 import java.util.Map;
 

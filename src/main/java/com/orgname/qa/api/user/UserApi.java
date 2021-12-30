@@ -1,15 +1,14 @@
-package api.user;
+package com.orgname.qa.api.user;
 
 import com.orgname.qa.configuration.Services;
-import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import lib.restassured.RestAssuredFactory;
+import com.orgname.qa.lib.restassured.RestAssuredFactory;
 import net.thucydides.core.annotations.Step;
 
 import java.util.Map;
 
-import static lib.restassured.Request.get;
+import static com.orgname.qa.lib.restassured.Request.get;
 
 public class UserApi {
 

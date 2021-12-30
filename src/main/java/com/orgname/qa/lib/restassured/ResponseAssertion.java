@@ -1,4 +1,4 @@
-package lib.restassured;
+package com.orgname.qa.lib.restassured;
 
 import io.cucumber.datatable.DataTable;
 import io.restassured.path.json.JsonPath;

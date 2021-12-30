@@ -1,18 +1,18 @@
-package lib.restassured;
+package com.orgname.qa.lib.restassured;
 
 import com.orgname.qa.configuration.Services;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import lib.configuration.ConfigurationProvider;
+import com.orgname.qa.lib.configuration.ConfigurationProvider;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import org.assertj.core.api.Assertions;
 
 import java.util.Map;
 
-import static lib.helpers.DebuggerHelper.isDebugging;
+import static com.orgname.qa.lib.helpers.DebuggerHelper.isDebugging;
 
 public class RestAssuredFactory {
     private static final ContentType DEFAULT_CONTENT_TYPE = ContentType.JSON;

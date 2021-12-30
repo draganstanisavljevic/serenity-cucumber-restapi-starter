@@ -1,8 +1,8 @@
-package lib.helpers;
+package com.orgname.qa.lib.helpers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lib.exceptions.TestErrorException;
+import com.orgname.qa.lib.exceptions.TestErrorException;
 import org.assertj.core.api.Assertions;
 
 import java.io.IOException;

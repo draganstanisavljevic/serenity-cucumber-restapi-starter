@@ -1,25 +1,22 @@
 package stepdef.pet;
 
-import api.pet.PetGetApi;
-import api.pet.PetPostApi;
+import com.orgname.qa.api.pet.PetGetApi;
+import com.orgname.qa.api.pet.PetPostApi;
 import com.orgname.qa.model.petstore.Category;
 import com.orgname.qa.model.petstore.Pet;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.ValidatableResponse;
-import lib.assertions.AssertionMessages;
-import lib.restassured.Request;
-import lib.restassured.ResponseAssertion;
+import com.orgname.qa.lib.restassured.ResponseAssertion;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 
-import static api.pet.PetPostApi.*;
-import static lib.assertions.AssertionMessages.isNull;
-import static lib.restassured.Request.*;
-import static lib.restassured.Request.then;
+import static com.orgname.qa.api.pet.PetPostApi.*;
+import static com.orgname.qa.lib.assertions.AssertionMessages.isNull;
+import static com.orgname.qa.lib.restassured.Request.then;
 
 public class PetSteps {
 

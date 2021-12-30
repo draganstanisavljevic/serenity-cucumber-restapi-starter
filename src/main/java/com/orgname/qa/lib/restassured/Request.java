@@ -1,4 +1,4 @@
-package lib.restassured;
+package com.orgname.qa.lib.restassured;
 
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.MultiPartSpecification;
