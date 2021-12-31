@@ -14,6 +14,8 @@ import net.thucydides.core.annotations.Steps;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 
+import java.util.Objects;
+
 import static com.orgname.qa.api.pet.PetPostApi.*;
 import static com.orgname.qa.lib.assertions.AssertionMessages.isNull;
 import static com.orgname.qa.lib.restassured.Request.then;
@@ -82,7 +84,7 @@ public class PetSteps {
     }
 
     private void assertCategory(Category actualCategory, Category expectedCategory){
-        Assertions.assertThat(actualCategory).as(isNull("Category")).isNotNull();
+        softAssert.assertThat(Objects.requireNonNull(actualCategory, isNull("Category"))).as("Category Id");
         softAssert.assertThat(actualCategory.getId()).as("Category Id")
                 .isEqualTo(expectedCategory.getId());
         softAssert.assertThat(actualCategory.getName()).as("Category name")
