@@ -4,3 +4,5 @@ https://gitlab.leaseplan.io/qa/automation/automation-test-framework/-/blob/maste
 ### Template Repo
 backend developing project repository
 frontend developing project repository 
+
+To execute all tests: gradle
