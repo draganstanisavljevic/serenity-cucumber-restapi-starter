@@ -1,8 +1,4 @@
-### Core repository
-https://gitlab.leaseplan.io/qa/automation/automation-test-framework/-/blob/master/readme.md
+### This is a demo framework for testing REST API
 
-### Template Repo
-backend developing project repository
-frontend developing project repository 
-
-To execute all tests: gradle
+### Technologies
+Java, Gradle, RestAssured, Serenity
