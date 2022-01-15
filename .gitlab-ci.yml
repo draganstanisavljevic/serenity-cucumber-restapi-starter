@@ -7,8 +7,9 @@ run tests:
   script:
     - gradle test
   artifacts:
+    when: always
     paths:
-      - target/
+      - ./target/site/serenity
     expire_in: 1 week
 
 
