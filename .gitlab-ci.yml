@@ -8,6 +8,8 @@ run tests:
     - gradle test
   artifacts:
     paths:
-      - ./target
+      - target/
+    expire_in: 1 week
+
 
 
