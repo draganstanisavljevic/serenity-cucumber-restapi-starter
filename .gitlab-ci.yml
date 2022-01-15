@@ -1,12 +1,6 @@
 stages:
   - test
 
-commerce_scpq:
-  extends: .tests_with_custom_path_rules
-  variables:
-    TAGS_EXPRESSION: '@CommerceScpq'
-    CUSTOM_PATH_ONE: "**/backend/commerce/cpq/scpq/**/*"
-
 run tests:
   stage: test
   image: gradle:6.8.3-jdk15-openj9
