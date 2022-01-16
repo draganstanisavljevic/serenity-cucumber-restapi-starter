@@ -26,7 +26,6 @@ Feature: Employee Details
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-2
-  @manual-test-evidence:assets/db.jpg
   Scenario: Verify credentials present in Master Database not older than 30 days
 
     Given User is connected to Master Database

@@ -2,3 +2,12 @@
 
 ### Technologies
 Java, Gradle, RestAssured, Serenity
+
+### Run tests
+gradle test 
+
+### Run annotated scenarios
+gradle test -Dcucumber.filter.tags="@Store"
+
+
+

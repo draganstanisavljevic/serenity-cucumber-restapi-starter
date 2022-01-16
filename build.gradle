@@ -55,10 +55,13 @@ dependencies {
 
 }
 
+sourceCompatibility = 11
+targetCompatibility = 11
 test {
-    testLogging.showStandardStreams = true
-    systemProperties System.getProperties()
-    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+    testLogging {
+        showStandardStreams = true
+    }
 }
 
 def swaggerFile = new File(swaggerUrlFile)

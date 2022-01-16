@@ -6,7 +6,12 @@ cache:
     - $GRADLE_USER_HOME/caches/
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
-    -
+
+variables:
+  USER_FEATURES: User
+  STORE_FEAUTURES: Store
+  PET_FEATURES: Pet
+
 stages:
   - test
 
@@ -14,7 +19,7 @@ run tests:
   stage: test
   image: gradle:6.8.3-jdk15-openj9
   script:
-    - gradle test
+    - gradle test -Dcucumber.filter.tags="@$STORE_FEAUTURES"
   artifacts:
     when: always
     paths:
