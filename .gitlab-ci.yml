@@ -19,8 +19,8 @@ run tests:
   stage: test
   image: gradle:6.8.3-jdk15-openj9
   script:
-    - echo "Run tests"
-    - echo "gradle test -Dcucumber.filter.tags='@$STORE_FEAUTURES'"
+    - echo "Run tests 2"
+    - echo "gradle my test -Dcucumber.filter.tags=@$STORE_FEAUTURES"
     - gradle test -Dcucumber.filter.tags="@$STORE_FEAUTURES"
   artifacts:
     when: always
