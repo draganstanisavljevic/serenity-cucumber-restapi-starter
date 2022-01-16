@@ -20,9 +20,10 @@ run_user:
     - echo "gradle my test -Dcucumber.filter.tags=@$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="@$TAGS_EXPRESSION"
   rules:
-    changes:
-      - "**/user/**/*"
-      - ".gitlab-ci.yml"
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - "**/user/**/*"
+        - ".gitlab-ci.yml"
   artifacts:
     when: always
     paths:
@@ -56,8 +57,9 @@ run_pet:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
-    changes:
-      - "**/pet/**/*"
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - "**/pet/**/*"
   artifacts:
     when: always
     paths:
