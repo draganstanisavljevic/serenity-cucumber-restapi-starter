@@ -7,25 +7,48 @@ cache:
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
 
-variables:
-  fUSER_FEATURES: fUser
-  fSTORE_FEAUTURES: fStore
-  fPET_FEATURES: fPet
 
 stages:
   - test
 
-run tests:
+run_user:
   stage: test
   image: gradle:6.8.3-jdk15-openj9
+  variables:
+    TAGS_EXPRESSION: '@User'
   script:
-    - echo "gradle my test -Dcucumber.filter.tags=@$STORE_FEAUTURES"
-    - gradle test -Dcucumber.filter.tags="@$STORE_FEAUTURES"
+    - echo "gradle my test -Dcucumber.filter.tags=@$TAGS_EXPRESSION"
+    - gradle test -Dcucumber.filter.tags="@$TAGS_EXPRESSION"
   artifacts:
     when: always
     paths:
       - ./target/site/serenity
     expire_in: 1 week
 
+run_store:
+  stage: test
+  image: gradle:6.8.3-jdk15-openj9
+  variables:
+    TAGS_EXPRESSION: '@Store'
+  script:
+    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
+    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
+  artifacts:
+    when: always
+    paths:
+      - ./target/site/serenity
+    expire_in: 1 week
 
-
+run_pet:
+  stage: test
+  image: gradle:6.8.3-jdk15-openj9
+  variables:
+    TAGS_EXPRESSION: '@Pet'
+  script:
+    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
+    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
+  artifacts:
+    when: always
+    paths:
+      - ./target/site/serenity
+    expire_in: 1 week
