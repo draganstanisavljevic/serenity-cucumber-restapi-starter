@@ -38,8 +38,9 @@ run_store:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
-    changes:
-      - "**/store/**/*"
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - "**/store/**/*"
   artifacts:
     when: always
     paths:
