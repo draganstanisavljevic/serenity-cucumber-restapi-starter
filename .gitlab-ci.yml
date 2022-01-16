@@ -22,6 +22,7 @@ run_user:
   rules:
     - "**/user/**/*"
     - ".gitlab-ci.yml"
+    - ".deleteme"
   artifacts:
     when: always
     paths:
