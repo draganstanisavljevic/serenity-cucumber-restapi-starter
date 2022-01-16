@@ -19,6 +19,9 @@ run_user:
   script:
     - echo "gradle my test -Dcucumber.filter.tags=@$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="@$TAGS_EXPRESSION"
+  rules:
+    - "**/user/**/*"
+    - ".gitlab-ci.yml"
   artifacts:
     when: always
     paths:
@@ -33,6 +36,8 @@ run_store:
   script:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
+  rules:
+    - "**/store/**/*"
   artifacts:
     when: always
     paths:
@@ -47,6 +52,8 @@ run_pet:
   script:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
+  rules:
+    - "**/pet/**/*"
   artifacts:
     when: always
     paths:
