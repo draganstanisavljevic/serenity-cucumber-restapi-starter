@@ -20,9 +20,9 @@ run_user:
     - echo "gradle my test -Dcucumber.filter.tags=@$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="@$TAGS_EXPRESSION"
   rules:
-    - "**/user/**/*"
-    - ".gitlab-ci.yml"
-    - ".deleteme"
+    changes:
+      - "**/user/**/*"
+      - ".gitlab-ci.yml"
   artifacts:
     when: always
     paths:
@@ -38,7 +38,8 @@ run_store:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
-    - "**/store/**/*"
+    changes:
+      - "**/store/**/*"
   artifacts:
     when: always
     paths:
@@ -54,7 +55,8 @@ run_pet:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
-    - "**/pet/**/*"
+    changes:
+      - "**/pet/**/*"
   artifacts:
     when: always
     paths:
