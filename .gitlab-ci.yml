@@ -20,6 +20,8 @@ run_user:
     - echo "gradle my test -Dcucumber.filter.tags=@$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="@$TAGS_EXPRESSION"
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/user/**/*"
@@ -40,6 +42,8 @@ run_store:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/store/**/*"
@@ -54,6 +58,8 @@ run_pet:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/pet/**/*"
