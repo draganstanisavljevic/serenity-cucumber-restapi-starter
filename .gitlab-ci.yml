@@ -1,3 +1,6 @@
+stages:
+  - test
+
 before_script:
   - export GRADLE_USER_HOME=cache/.gradle
 
@@ -6,9 +9,6 @@ cache:
     - $GRADLE_USER_HOME/caches/
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
-
-stages:
-  - test
 
 run_user:
   stage: test
