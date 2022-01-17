@@ -7,6 +7,9 @@ cache:
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
 
+stages:
+  - test
+
 image: gradle:6.8.3-jdk15-openj9
 artifacts:
   when: always
@@ -14,8 +17,6 @@ artifacts:
     - ./target/site/serenity
   expire_in: 1 week
 
-stages:
-  - test
 
 run_user:
   stage: test
