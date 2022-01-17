@@ -24,11 +24,7 @@ run_user:
       changes:
         - "**/user/**/*"
         - ".gitlab-ci.yml"
-  artifacts:
-    when: always
-    paths:
-      - ./target/site/serenity
-    expire_in: 1 week
+
 
 run_store:
   stage: test
@@ -42,11 +38,7 @@ run_store:
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/store/**/*"
-  artifacts:
-    when: always
-    paths:
-      - ./target/site/serenity
-    expire_in: 1 week
+
 
 run_pet:
   stage: test
@@ -60,8 +52,3 @@ run_pet:
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/pet/**/*"
-  artifacts:
-    when: always
-    paths:
-      - ./target/site/serenity
-    expire_in: 1 week
