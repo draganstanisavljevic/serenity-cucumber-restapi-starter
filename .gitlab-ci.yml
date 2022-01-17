@@ -7,7 +7,6 @@ cache:
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
 
-
 stages:
   - test
 
@@ -24,6 +23,11 @@ run_user:
       changes:
         - "**/user/**/*"
         - ".gitlab-ci.yml"
+  artifacts:
+    when: always
+    paths:
+      - ./target/site/serenity
+    expire_in: 1 week
 
 
 run_store:
