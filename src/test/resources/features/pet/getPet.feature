@@ -17,4 +17,3 @@ Feature: Retrieve pet
     When I search by tag gygygy
     Then I should receive status code 'OK'
 
-
