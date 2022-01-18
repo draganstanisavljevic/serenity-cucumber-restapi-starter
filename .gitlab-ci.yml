@@ -10,9 +10,10 @@ cache:
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
 
+image: gradle:6.8.3-jdk15-openj9
+
 run_user:
   stage: test
-  image: gradle:6.8.3-jdk15-openj9
   variables:
     TAGS_EXPRESSION: '@User'
     CUSTOM_PATH_ONE: "**/user/**/*"
@@ -35,7 +36,6 @@ run_user:
 
 run_store:
   stage: test
-  image: gradle:6.8.3-jdk15-openj9
   variables:
     TAGS_EXPRESSION: '@Store'
     CUSTOM_PATH_ONE: "**/store/**/*"
@@ -52,7 +52,6 @@ run_store:
 
 run_pet:
   stage: test
-  image: gradle:6.8.3-jdk15-openj9
   variables:
     TAGS_EXPRESSION: '@Pet'
     CUSTOM_PATH_ONE: "**/pet/**/*"
