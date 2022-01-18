@@ -4,6 +4,16 @@ include:
 stages:
   - test
 
+    proba:
+      stage: test
+      script:
+        - echo "proba"
+      rules:
+        - if: '$CI_PIPELINE_SOURCE == "push"'
+          when: always
+
+
+
 run_user:
   stage: test
   extends: .template
