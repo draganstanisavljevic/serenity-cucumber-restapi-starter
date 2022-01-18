@@ -4,35 +4,12 @@ include:
 stages:
   - test
 
-proba:
-  stage: test
-  script:
-    - echo "proba"
-
-
-
 run_user:
   stage: test
   extends: .template
   variables:
     TAGS_EXPRESSION: '@User'
     CUSTOM_PATH_ONE: "**/user/**/*"
-  script:
-    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
-    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: on_success
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-      changes:
-        - "**/user/**/*"
-        - ".gitlab-ci.yml"
-  artifacts:
-    when: always
-    paths:
-      - ./target/site/serenity
-    expire_in: 1 week
-
 
 
 run_store:
@@ -41,15 +18,6 @@ run_store:
   variables:
     TAGS_EXPRESSION: '@Store'
     CUSTOM_PATH_ONE: "**/store/**/*"
-  script:
-    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
-    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: on_success
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-      changes:
-        - "**/store/**/*"
 
 
 run_pet:
@@ -58,13 +26,4 @@ run_pet:
   variables:
     TAGS_EXPRESSION: '@Pet'
     CUSTOM_PATH_ONE: "**/pet/**/*"
-  script:
-    - echo "Start"
-    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
-    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: on_success
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-      changes:
-        - "**/pet/**/*"
+

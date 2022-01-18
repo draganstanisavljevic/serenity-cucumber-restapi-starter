@@ -1,7 +1,8 @@
 .template:
   image: gradle:6.8.3-jdk15-openj9
   script:
-    - echo "I am from included file"
+    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
+    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
 
   before_script:
     - export GRADLE_USER_HOME=cache/.gradle
@@ -12,3 +13,16 @@
       - $GRADLE_USER_HOME/wrapper/
       - $GRADLE_USER_HOME/build-cache/
 
+  artifacts:
+    when: always
+    paths:
+      - ./target/site/serenity
+    expire_in: 1 week
+
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - "$CUSTOM_PATH_ONE"
+        - ".gitlab-ci.yml"
