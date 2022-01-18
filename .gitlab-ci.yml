@@ -52,6 +52,7 @@ run_pet:
     TAGS_EXPRESSION: '@Pet'
     CUSTOM_PATH_ONE: "**/pet/**/*"
   script:
+    - echo "Start"
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
