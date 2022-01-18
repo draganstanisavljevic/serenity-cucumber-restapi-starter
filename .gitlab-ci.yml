@@ -1,10 +1,8 @@
 stages:
   - test
 
-
 before_script:
   - export GRADLE_USER_HOME=cache/.gradle
-
 
 cache:
   paths:
@@ -17,9 +15,10 @@ run_user:
   image: gradle:6.8.3-jdk15-openj9
   variables:
     TAGS_EXPRESSION: '@User'
+    CUSTOM_PATH_ONE: "**/user/**/*"
   script:
-    - echo "gradle my test -Dcucumber.filter.tags=@$TAGS_EXPRESSION"
-    - gradle test -Dcucumber.filter.tags="@$TAGS_EXPRESSION"
+    - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
+    - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: on_success
@@ -39,6 +38,7 @@ run_store:
   image: gradle:6.8.3-jdk15-openj9
   variables:
     TAGS_EXPRESSION: '@Store'
+    CUSTOM_PATH_ONE: "**/store/**/*"
   script:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
@@ -55,6 +55,7 @@ run_pet:
   image: gradle:6.8.3-jdk15-openj9
   variables:
     TAGS_EXPRESSION: '@Pet'
+    CUSTOM_PATH_ONE: "**/pet/**/*"
   script:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - gradle test -Dcucumber.filter.tags="$TAGS_EXPRESSION"
