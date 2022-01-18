@@ -11,3 +11,9 @@
       - $GRADLE_USER_HOME/caches/
       - $GRADLE_USER_HOME/wrapper/
       - $GRADLE_USER_HOME/build-cache/
+
+  artifacts:
+    when: always
+    paths:
+      - ./target/site/serenity
+    expire_in: 1 week
