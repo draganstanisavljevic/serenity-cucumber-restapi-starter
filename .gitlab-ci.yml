@@ -1,6 +1,7 @@
 stages:
   - test
 
+
 before_script:
   - export GRADLE_USER_HOME=cache/.gradle
 
