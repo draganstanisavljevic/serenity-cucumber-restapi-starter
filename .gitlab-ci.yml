@@ -15,6 +15,7 @@ cache:
 
 run_user:
   stage: test
+  extends: .template
   variables:
     TAGS_EXPRESSION: '@User'
     CUSTOM_PATH_ONE: "**/user/**/*"
@@ -37,6 +38,7 @@ run_user:
 
 run_store:
   stage: test
+  extends: .template
   variables:
     TAGS_EXPRESSION: '@Store'
     CUSTOM_PATH_ONE: "**/store/**/*"
@@ -53,6 +55,7 @@ run_store:
 
 run_pet:
   stage: test
+  extends: .template
   variables:
     TAGS_EXPRESSION: '@Pet'
     CUSTOM_PATH_ONE: "**/pet/**/*"
