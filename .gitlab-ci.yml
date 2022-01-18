@@ -1,3 +1,5 @@
+include: gitlab-ci-automation-template.yml
+
 stages:
   - test
 
@@ -9,8 +11,6 @@ cache:
     - $GRADLE_USER_HOME/caches/
     - $GRADLE_USER_HOME/wrapper/
     - $GRADLE_USER_HOME/build-cache/
-
-image: gradle:6.8.3-jdk15-openj9
 
 run_user:
   stage: test
