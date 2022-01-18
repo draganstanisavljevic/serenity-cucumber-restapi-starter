@@ -26,6 +26,8 @@ run_user:
       - ./target/site/serenity
     expire_in: 1 week
 
+
+
 run_store:
   stage: test
   extends: .template
