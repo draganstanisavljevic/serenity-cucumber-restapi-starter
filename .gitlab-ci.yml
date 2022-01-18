@@ -1,6 +1,7 @@
 include:
   local: 'gitlab-ci-automation-template.yml'
 
+
 stages:
   - test
 
