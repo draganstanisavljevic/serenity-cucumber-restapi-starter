@@ -1,17 +1,8 @@
 include:
-  local: 'gitlab-ci-automation-template.yml'
+  local: 'gitlab-ci-automation-templatekkk.yml'
 
 stages:
   - test
-
-before_script:
-  - export GRADLE_USER_HOME=cache/.gradle
-
-cache:
-  paths:
-    - $GRADLE_USER_HOME/caches/
-    - $GRADLE_USER_HOME/wrapper/
-    - $GRADLE_USER_HOME/build-cache/
 
 run_user:
   stage: test
