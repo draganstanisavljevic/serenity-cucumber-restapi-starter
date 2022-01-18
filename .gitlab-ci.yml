@@ -4,13 +4,10 @@ include:
 stages:
   - test
 
-    proba:
-      stage: test
-      script:
-        - echo "proba"
-      rules:
-        - if: '$CI_PIPELINE_SOURCE == "push"'
-          when: always
+proba:
+  stage: test
+  script:
+    - echo "proba"
 
 
 
