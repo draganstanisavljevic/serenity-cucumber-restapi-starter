@@ -28,4 +28,3 @@ run_pet:
   variables:
     TAGS_EXPRESSION: '@Pet'
     CUSTOM_PATH_ONE: "**/pet/**/*"
-
