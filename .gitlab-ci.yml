@@ -1,7 +1,9 @@
 include:
-  local: 'gitlab-ci-automation-template.yml'
+  - local: 'gitlab-ci-automation-template.yml'
+  - local: 'sonarcloud-pipeline-template.yml'
 
 stages:
+  - sonarcheck
   - test
 
 run_user:
