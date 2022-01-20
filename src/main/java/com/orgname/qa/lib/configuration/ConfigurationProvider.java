@@ -8,7 +8,8 @@ import java.util.Map;
 public class ConfigurationProvider {
 
     private static Map<String, Map<String, String>> testsConfiguration;
-    private static final String ENV = System.getenv().get("environment");
+    private static final String ENV = System.getProperty("environment");
+
 
     /**
      *function loads tests configuration using configuration path and environment

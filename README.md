@@ -9,5 +9,8 @@ gradle test
 ### Run annotated scenarios
 gradle test -Dcucumber.filter.tags="@Store"
 
+### Run on required environment
+gradle test -Denvironment="preprod"
+
 
 
