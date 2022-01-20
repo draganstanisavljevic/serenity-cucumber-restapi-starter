@@ -13,14 +13,12 @@ run_user:
     TAGS_EXPRESSION: '@User'
     CUSTOM_PATH_ONE: "**/user/**/*"
 
-
 run_store:
   stage: test
   extends: .template
   variables:
     TAGS_EXPRESSION: '@Store'
     CUSTOM_PATH_ONE: "**/store/**/*"
-
 
 run_pet:
   stage: test

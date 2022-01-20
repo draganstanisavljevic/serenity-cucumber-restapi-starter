@@ -3,9 +3,6 @@
   script:
     - echo "gradle my test -Dcucumber.filter.tags=$TAGS_EXPRESSION"
     - >
-      if[$ENVIRONMENT != 'testing'];then
-        echo "Not equal testing"
-      fi
       if [[ ! -f "src/test/resources/config/config.json" ]]; then
         export CONFIG=$CONFIG
         jq '.' $CONFIG > src/test/resources/config/config.json
