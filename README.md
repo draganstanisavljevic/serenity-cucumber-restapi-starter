@@ -12,5 +12,9 @@ gradle test -Dcucumber.filter.tags="@Store"
 ### Run on required environment
 gradle test -Denvironment="preprod"
 
+### For update model
+gradle generate -DpackageName=petstore
+
+
 
 

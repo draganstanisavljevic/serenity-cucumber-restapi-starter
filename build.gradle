@@ -67,10 +67,6 @@ dependencies {
 sourceCompatibility = 11
 targetCompatibility = 11
 test {
-/*    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
-    testLogging {
-        showStandardStreams = true
-    }*/
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
 }
