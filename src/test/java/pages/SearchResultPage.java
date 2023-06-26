@@ -1,4 +1,4 @@
-package helpers;
+package pages;
 
 import com.orgname.qa.lib.webdriver.BasePage;
 import org.openqa.selenium.By;

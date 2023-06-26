@@ -21,7 +21,6 @@ public class SearchStep extends UIInteractionSteps {
     public void iSearchFor(String searchTerm, String linkName, String pageName) {
         pageInteractionSteps.iEnterText(searchTerm, linkName, pageName);
         WebElementFacade searchBox = pageHelper.getElementLocator("searchButton", pageName);
-        System.out.println();
         basePage.submitText(searchBox, searchTerm);
         System.out.println();
     }

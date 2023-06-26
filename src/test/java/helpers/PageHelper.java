@@ -2,7 +2,9 @@ package helpers;
 
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.steps.UIInteractionSteps;
+import pages.HeaderPage;
 import pages.HomePage;
+import pages.SearchResultPage;
 
 public class PageHelper extends UIInteractionSteps {
 

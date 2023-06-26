@@ -7,13 +7,19 @@ Java, Gradle, RestAssured, Serenity
 gradle test 
 
 ### Run annotated scenarios
-gradle test -Dcucumber.filter.tags="@Store"
+gradle test -Dtags="@frontend"
 
 ### Run on required environment
 gradle test -Denvironment="preprod"
 
 ### For update model
 gradle generate -DpackageName=petstore
+
+###  you can generate summary reports by invoking the reports task:
+gradle reports
+
+
+
 
 
 

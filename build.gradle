@@ -3,10 +3,10 @@ import groovy.json.*
 buildscript {
     repositories {
         mavenLocal()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.4.24")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:3.5.0")
         classpath("net.serenity-bdd:serenity-single-page-report:2.4.24")
     }
 }
@@ -19,17 +19,17 @@ defaultTasks 'clean', 'test', 'aggregate'
 
 repositories {
     mavenLocal()
-    jcenter()
+    mavenCentral()
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
 
 
-sourceCompatibility = 14
-targetCompatibility = 14
+sourceCompatibility = 17
+targetCompatibility = 17
 
 serenity {
     reports = ["single-page-html"]
@@ -44,45 +44,46 @@ sonarqube {
 
 ext {
     javafakerVersion = '1.0.2'
+    cucumberVersion = '7.8.1'
+    lombokVersion = '1.18.22'
 }
 
 dependencies {
-
-    implementation 'net.serenity-bdd:serenity-cucumber6:2.6.0'
-    implementation 'net.serenity-bdd:serenity-screenplay:2.6.0'
-    implementation 'net.serenity-bdd:serenity-screenplay-rest:2.6.0'
-    implementation 'net.serenity-bdd:serenity-rest-assured:2.6.0'
-    implementation 'io.rest-assured:rest-assured:4.3.2'
-    implementation 'junit:junit:4.13.1'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.5.1'
+    implementation 'net.serenity-bdd:serenity-screenplay:3.5.1'
+    implementation 'net.serenity-bdd:serenity-screenplay-rest:3.5.1'
+    implementation 'net.serenity-bdd:serenity-rest-assured:3.5.1'
+    implementation 'io.rest-assured:rest-assured:5.3.0'
+    testImplementation 'junit:junit:4.13.2'
     implementation group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
     implementation group: 'org.springframework', name: 'spring-web', version: '5.2.6.RELEASE'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.7'
-    implementation 'io.swagger:swagger-annotations:1.6.4'
+    implementation 'io.swagger:swagger-annotations:1.6.8'
     implementation("com.github.javafaker:javafaker:${javafakerVersion}") { exclude module: 'org.yaml' }
-    implementation 'org.threeten:threetenbp:1.5.2'
-    implementation 'io.cucumber:cucumber-plugin:6.10.4'
+    implementation 'org.threeten:threetenbp:1.6.5'
+    implementation 'io.cucumber:cucumber-plugin:7.8.1'
+    implementation 'io.cucumber:cucumber-java:7.8.1'
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
+
 }
 
-sourceCompatibility = 11
-targetCompatibility = 11
 test {
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
 }
 
 def swaggerFile = new File(swaggerUrlFile)
-def swaggerProjects = new JsonSlurper().parse(swaggerFile)
+//def swaggerProjects = new JsonSlurper().parse(swaggerFile)
 
 
-task generate(type: Exec) {
+/*task generate(type: Exec) {
     //for documentation: https://github.com/swagger-api/swagger-codegen#selective-generation
 
     commandLine 'java', '-jar', './swagger-codegen/swagger-codegen-cli.jar', 'generate',
             '-i', swaggerProjects.get(projectName), '--model-package', 'com.orgname.qa.model.' + packageName,
             '-l', 'java', '-Dmodels', '-DmodelTests=false', '-DmodelDocs=false'
 
-}
+}*/
 
 gradle.startParameter.continueOnFailure = true
 
