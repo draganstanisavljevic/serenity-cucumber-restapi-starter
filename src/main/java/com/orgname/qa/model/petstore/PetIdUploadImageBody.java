@@ -20,53 +20,54 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.File;
 import java.io.IOException;
 /**
- * Tag
+ * PetIdUploadImageBody
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-06-26T17:42:13.422413800+02:00[Europe/Budapest]")
-public class Tag {
-  @SerializedName("id")
-  private Long id = null;
+public class PetIdUploadImageBody {
+  @SerializedName("additionalMetadata")
+  private String additionalMetadata = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("file")
+  private File file = null;
 
-  public Tag id(Long id) {
-    this.id = id;
+  public PetIdUploadImageBody additionalMetadata(String additionalMetadata) {
+    this.additionalMetadata = additionalMetadata;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Additional data to pass to server
+   * @return additionalMetadata
   **/
-  @Schema(description = "")
-  public Long getId() {
-    return id;
+  @Schema(description = "Additional data to pass to server")
+  public String getAdditionalMetadata() {
+    return additionalMetadata;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public void setAdditionalMetadata(String additionalMetadata) {
+    this.additionalMetadata = additionalMetadata;
   }
 
-  public Tag name(String name) {
-    this.name = name;
+  public PetIdUploadImageBody file(File file) {
+    this.file = file;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * file to upload
+   * @return file
   **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
+  @Schema(description = "file to upload")
+  public File getFile() {
+    return file;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFile(File file) {
+    this.file = file;
   }
 
 
@@ -78,24 +79,24 @@ public class Tag {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Tag tag = (Tag) o;
-    return Objects.equals(this.id, tag.id) &&
-        Objects.equals(this.name, tag.name);
+    PetIdUploadImageBody petIdUploadImageBody = (PetIdUploadImageBody) o;
+    return Objects.equals(this.additionalMetadata, petIdUploadImageBody.additionalMetadata) &&
+        Objects.equals(this.file, petIdUploadImageBody.file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(additionalMetadata, Objects.hashCode(file));
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Tag {\n");
+    sb.append("class PetIdUploadImageBody {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    additionalMetadata: ").append(toIndentedString(additionalMetadata)).append("\n");
+    sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("}");
     return sb.toString();
   }

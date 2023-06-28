@@ -1,6 +1,6 @@
 /*
  * Swagger Petstore
- * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the com.orgname.qa.api key `special-key` to test the authorization filters.
+ * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * OpenAPI spec version: 1.0.6
  * Contact: apiteam@swagger.io
@@ -9,7 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-
 
 package com.orgname.qa.model.petstore;
 
@@ -20,14 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-
 /**
  * ModelApiResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-06-26T17:42:13.422413800+02:00[Europe/Budapest]")
 public class ModelApiResponse {
   @SerializedName("code")
   private Integer code = null;
@@ -47,7 +45,7 @@ public class ModelApiResponse {
    * Get code
    * @return code
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Integer getCode() {
     return code;
   }
@@ -65,7 +63,7 @@ public class ModelApiResponse {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getType() {
     return type;
   }
@@ -83,7 +81,7 @@ public class ModelApiResponse {
    * Get message
    * @return message
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getMessage() {
     return message;
   }
@@ -137,4 +135,3 @@ public class ModelApiResponse {
   }
 
 }
-

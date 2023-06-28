@@ -1,6 +1,6 @@
 /*
  * Swagger Petstore
- * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the com.orgname.qa.api key `special-key` to test the authorization filters.
+ * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * OpenAPI spec version: 1.0.6
  * Contact: apiteam@swagger.io
@@ -9,7 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-
 
 package com.orgname.qa.model.petstore;
 
@@ -20,14 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-
 /**
  * User
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-06-26T17:42:13.422413800+02:00[Europe/Budapest]")
 public class User {
   @SerializedName("id")
   private Long id = null;
@@ -62,7 +60,7 @@ public class User {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Long getId() {
     return id;
   }
@@ -80,7 +78,7 @@ public class User {
    * Get username
    * @return username
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getUsername() {
     return username;
   }
@@ -98,7 +96,7 @@ public class User {
    * Get firstName
    * @return firstName
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getFirstName() {
     return firstName;
   }
@@ -116,7 +114,7 @@ public class User {
    * Get lastName
    * @return lastName
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getLastName() {
     return lastName;
   }
@@ -134,7 +132,7 @@ public class User {
    * Get email
    * @return email
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getEmail() {
     return email;
   }
@@ -152,7 +150,7 @@ public class User {
    * Get password
    * @return password
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getPassword() {
     return password;
   }
@@ -170,7 +168,7 @@ public class User {
    * Get phone
    * @return phone
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getPhone() {
     return phone;
   }
@@ -188,7 +186,7 @@ public class User {
    * User Status
    * @return userStatus
   **/
-  @ApiModelProperty(value = "User Status")
+  @Schema(description = "User Status")
   public Integer getUserStatus() {
     return userStatus;
   }
@@ -252,4 +250,3 @@ public class User {
   }
 
 }
-

@@ -3,6 +3,7 @@ package stepdef.frontend;
 import com.orgname.qa.lib.assertions.AssertionMessages;
 import com.orgname.qa.lib.helpers.StringFormatHelper;
 import com.orgname.qa.lib.webdriver.BasePage;
+import helpers.ExpectedText;
 import helpers.PageHelper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
@@ -41,7 +42,7 @@ public class PageInteractionSteps extends UIInteractionSteps {
         String locator = StringFormatHelper.toCamelCase(elementName);
         basePage.waitFor(pageHelper.getElementLocator(locator, pageName));
         String actualText = pageHelper.getElementLocator(locator, pageName).getText();
-        Assert.assertEquals(expectedText, actualText);
+        Assert.assertEquals(ExpectedText.valueOf(expectedText).getValue(), actualText);
     }
 
     @When("I enter {string} in {string} element in the {string}")

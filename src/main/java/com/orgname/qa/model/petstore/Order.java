@@ -1,6 +1,6 @@
 /*
  * Swagger Petstore
- * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the com.orgname.qa.api key `special-key` to test the authorization filters.
+ * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * OpenAPI spec version: 1.0.6
  * Contact: apiteam@swagger.io
@@ -10,23 +10,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.orgname.qa.model.petstore;
 
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.Objects;
-
+import org.threeten.bp.OffsetDateTime;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-06-26T17:42:13.422413800+02:00[Europe/Budapest]")
 public class Order {
   @SerializedName("id")
   private Long id = null;
@@ -46,9 +46,7 @@ public class Order {
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     PLACED("placed"),
-    
     APPROVED("approved"),
-    
     DELIVERED("delivered");
 
     private String value;
@@ -56,7 +54,6 @@ public class Order {
     StatusEnum(String value) {
       this.value = value;
     }
-
     public String getValue() {
       return value;
     }
@@ -65,31 +62,27 @@ public class Order {
     public String toString() {
       return String.valueOf(value);
     }
-
-    public static StatusEnum fromValue(String text) {
+    public static StatusEnum fromValue(String input) {
       for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }
       return null;
     }
-
     public static class Adapter extends TypeAdapter<StatusEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
       }
     }
-  }
-
-  @SerializedName("status")
+  }  @SerializedName("status")
   private StatusEnum status = null;
 
   @SerializedName("complete")
@@ -104,7 +97,7 @@ public class Order {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Long getId() {
     return id;
   }
@@ -122,7 +115,7 @@ public class Order {
    * Get petId
    * @return petId
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Long getPetId() {
     return petId;
   }
@@ -140,7 +133,7 @@ public class Order {
    * Get quantity
    * @return quantity
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Integer getQuantity() {
     return quantity;
   }
@@ -149,16 +142,16 @@ public class Order {
     this.quantity = quantity;
   }
 
-  public Order shipDate(String shipDate) {
+  public String shipDate(String shipDate) {
     this.shipDate = shipDate;
-    return this;
+    return String.valueOf(this);
   }
 
    /**
    * Get shipDate
    * @return shipDate
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public String getShipDate() {
     return shipDate;
   }
@@ -176,7 +169,7 @@ public class Order {
    * Order Status
    * @return status
   **/
-  @ApiModelProperty(value = "Order Status")
+  @Schema(description = "Order Status")
   public StatusEnum getStatus() {
     return status;
   }
@@ -194,7 +187,7 @@ public class Order {
    * Get complete
    * @return complete
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Boolean isComplete() {
     return complete;
   }
@@ -254,4 +247,3 @@ public class Order {
   }
 
 }
-
