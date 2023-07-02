@@ -11,7 +11,7 @@ Feature: Home page
   @TEST_NGSMP1-549 @frontend
   Scenario: Sign in text is shown as title on home page
     When I open home_page page
-    And I should see "Sign In" text as "title" on "Home page" Page
+    And I should see "SIGN_IN" text as "title" on "Home page" Page
 
 
 

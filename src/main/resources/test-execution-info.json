@@ -1,0 +1,16 @@
+{
+  "fields": {
+    "project": {
+      "key": null
+    },
+    "issuetype": {
+      "name": "Test Execution"
+    },
+    "summary": null,
+    "labels": []
+  },
+  "xrayFields": {
+    "testPlanKey": null,
+    "environments": []
+  }
+}

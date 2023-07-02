@@ -20,6 +20,10 @@ defaultTasks 'clean', 'test', 'aggregate'
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        name 'Atlassian Public'
+        url "https://m2proxy.atlassian.com/repository/public"
+    }
 }
 
 apply plugin: 'java'
@@ -46,6 +50,7 @@ ext {
     javafakerVersion = '1.0.2'
     cucumberVersion = '7.8.1'
     lombokVersion = '1.18.22'
+    jiraRestJavaClientVersion = '5.2.4'
 }
 
 dependencies {
@@ -69,10 +74,13 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
     testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    //jira
+    implementation 'com.atlassian.jira:jira-rest-java-client-core:5.2.0'
+    //auth2
+    implementation 'com.auth0:java-jwt:4.2.1'
 }
 
 test {
-    maxParallelForks = 4
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
 }

@@ -1,7 +1,8 @@
 package helpers;
 
 public enum ExpectedText {
-    NO_SEARCH_RESULT("Please enter a keyword to search for, then press the search button.");
+    NO_SEARCH_RESULT("Please enter a keyword to search for, then press the search button."),
+    SIGN_IN("Sign In");
 
     private String value;
 

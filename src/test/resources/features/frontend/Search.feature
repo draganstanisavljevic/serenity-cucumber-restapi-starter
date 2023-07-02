@@ -4,7 +4,7 @@ Feature: Search page
   Scenario: Check empty search
     When I open home_page page
     And I click "Search Button" element in the "Header"
-    Then I should see "Please enter a keyword to search for, then press the search button." text as "error message" on "Search Result Page" Page
+    Then I should see "NO_SEARCH_RESULT" text as "error message" on "Search Result Page" Page
 
   @TEST_NGSMP1-562 @frontend
   Scenario: When I search for dog I see result item
