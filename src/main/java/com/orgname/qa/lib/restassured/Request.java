@@ -44,6 +44,21 @@ public class Request {
         return response;
     }
 
+    public static ValidatableResponse post(final RequestSpecification requestSpec, final String url, Map<String, String> formParams){
+        ValidatableResponse response = requestSpec
+                .formParams(formParams)
+                .when().post(url).then();
+        Serenity.setSessionVariable(LAST_RESPONSE).to(response);
+        return response;
+    }
+
+    public static ValidatableResponse post(final RequestSpecification requestSpec, final String url){
+        ValidatableResponse response = requestSpec
+                .when().post(url).then();
+        Serenity.setSessionVariable(LAST_RESPONSE).to(response);
+        return response;
+    }
+
     public static ValidatableResponse post(final RequestSpecification rs,
                                            final String url,
                                            final MultiPartSpecification multiPart) {

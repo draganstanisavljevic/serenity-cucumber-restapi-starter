@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AddMoonVideoExternalLink implements AfterAWebdriverScenario {
 
-    private static final String MOON_ARTIFACTS_URL = "http://moon-artifacts.tools.leaseplan.io";
+    private static final String MOON_ARTIFACTS_URL = "http://moon-artifacts.tools.example.io";
 
     @Override
     public void apply(EnvironmentVariables environmentVariables, TestOutcome testOutcome, WebDriver driver) {

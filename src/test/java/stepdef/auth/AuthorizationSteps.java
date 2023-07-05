@@ -8,6 +8,7 @@ import implementations.backend.auth.TokenApi;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
@@ -31,7 +32,11 @@ public class AuthorizationSteps {
 
     @When("^I (?:retrieve|attempt to retrieve)? a valid token for user '(.*)' in '(.*)' service$")
     public void attemptLoginAsTestUser(final String user, final String service) {
-        tokenApi.requestToken(user, Services.valueOf(service));
+        if(service.equals("CPX_TIBCO")){
+            tokenApi.requestUrlencToken(user, Services.valueOf(service));
+        }else{
+            tokenApi.requestToken(user, Services.valueOf(service));
+        }
     }
 
     /**

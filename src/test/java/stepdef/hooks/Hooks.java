@@ -69,7 +69,7 @@ public class Hooks {
     public void attachArtifactsOnFailure(final Scenario scenario) {
         if (scenario.getStatus() == Status.FAILED) {
             String sessionId = Serenity.getCurrentSessionID();
-            String moonArtifactsURL = "http://moon-artifacts.tools.leaseplan.io";
+            String moonArtifactsURL = "http://moon-artifacts.tools.example.io";
 
             Properties webserviceEndpoint = EnvironmentSpecificConfiguration.from(environmentVariables)
                     .getPropertiesWithPrefix("webdriver.remote.url");

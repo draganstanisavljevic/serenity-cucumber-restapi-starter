@@ -6,7 +6,8 @@ public enum Services {
     STORE("store_api"),
     USER("user_api"),
     DELEGATEDADMIN("delegatedAdmin"),
-    MYLP("myLp");
+    MYLP("myLp"),
+    CPX_TIBCO("cpxTibco");
 
     private final String service;
 
