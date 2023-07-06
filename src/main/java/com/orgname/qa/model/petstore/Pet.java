@@ -1,6 +1,6 @@
 /*
  * Swagger Petstore
- * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the com.orgname.qa.api key `special-key` to test the authorization filters.
+ * This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * OpenAPI spec version: 1.0.6
  * Contact: apiteam@swagger.io
@@ -9,7 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-
 
 package com.orgname.qa.model.petstore;
 
@@ -22,16 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.orgname.qa.model.petstore.Category;
 import com.orgname.qa.model.petstore.Tag;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Pet
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-12-28T15:57:48.735+02:00")
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-06-26T17:42:13.422413800+02:00[Europe/Budapest]")
 public class Pet {
   @SerializedName("id")
   private Long id = null;
@@ -54,9 +52,7 @@ public class Pet {
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     AVAILABLE("available"),
-    
     PENDING("pending"),
-    
     SOLD("sold");
 
     private String value;
@@ -64,7 +60,6 @@ public class Pet {
     StatusEnum(String value) {
       this.value = value;
     }
-
     public String getValue() {
       return value;
     }
@@ -73,31 +68,27 @@ public class Pet {
     public String toString() {
       return String.valueOf(value);
     }
-
-    public static StatusEnum fromValue(String text) {
+    public static StatusEnum fromValue(String input) {
       for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }
       return null;
     }
-
     public static class Adapter extends TypeAdapter<StatusEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
       }
     }
-  }
-
-  @SerializedName("status")
+  }  @SerializedName("status")
   private StatusEnum status = null;
 
   public Pet id(Long id) {
@@ -109,7 +100,7 @@ public class Pet {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Long getId() {
     return id;
   }
@@ -127,7 +118,7 @@ public class Pet {
    * Get category
    * @return category
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public Category getCategory() {
     return category;
   }
@@ -145,7 +136,7 @@ public class Pet {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "doggie", required = true, value = "")
+  @Schema(example = "doggie", required = true, description = "")
   public String getName() {
     return name;
   }
@@ -168,7 +159,7 @@ public class Pet {
    * Get photoUrls
    * @return photoUrls
   **/
-  @ApiModelProperty(required = true, value = "")
+  @Schema(required = true, description = "")
   public List<String> getPhotoUrls() {
     return photoUrls;
   }
@@ -194,7 +185,7 @@ public class Pet {
    * Get tags
    * @return tags
   **/
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   public List<Tag> getTags() {
     return tags;
   }
@@ -212,7 +203,7 @@ public class Pet {
    * pet status in the store
    * @return status
   **/
-  @ApiModelProperty(value = "pet status in the store")
+  @Schema(description = "pet status in the store")
   public StatusEnum getStatus() {
     return status;
   }
@@ -272,4 +263,3 @@ public class Pet {
   }
 
 }
-

@@ -7,5 +7,16 @@
   },
   "user_api": {
     "baseUrl": "https://petstore.swagger.io/v2"
+  },
+  "vpg": {
+    "webdriver.base.url": "https://petstore.octoperf.com"
+  },
+  "myLp": {
+    "baseUrl": "https://test-gateway.example.com",
+    "auth0Url": "https://acc-auth.example.com/"
+  },
+  "cpqTibco": {
+    "baseUrl": "https://test.example.com",
+    "auth0Url": "https://test-api.example.com/"
   }
 }

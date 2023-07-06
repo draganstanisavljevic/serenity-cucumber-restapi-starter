@@ -7,13 +7,21 @@ Java, Gradle, RestAssured, Serenity
 gradle test 
 
 ### Run annotated scenarios
-gradle test -Dcucumber.filter.tags="@Store"
+gradle test -Dtags="@frontend"
 
 ### Run on required environment
 gradle test -Denvironment="preprod"
 
 ### For update model
 gradle generate -DpackageName=petstore
+java -Dmodels -DmodelDocs=false -DmodelsTests=false  -jar ./swagger-codegen/swagger-codegen-cli.jar generate -i http://petstore.swagger.io/v2/swagger.json -l java --model-package  com.orgname.qa.model.petstore
+
+
+###  you can generate summary reports by invoking the reports task:
+gradle reports
+
+
+
 
 
 

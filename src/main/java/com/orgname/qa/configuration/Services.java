@@ -4,7 +4,10 @@ public enum Services {
 
     PET("pet_api"),
     STORE("store_api"),
-    USER("user_api");
+    USER("user_api"),
+    DELEGATEDADMIN("delegatedAdmin"),
+    MYLP("myLp"),
+    CPX_TIBCO("cpxTibco");
 
     private final String service;
 

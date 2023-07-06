@@ -17,6 +17,63 @@ import static com.orgname.qa.lib.helpers.DebuggerHelper.isDebugging;
 public class RestAssuredFactory {
     private static final ContentType DEFAULT_CONTENT_TYPE = ContentType.JSON;
 
+    public static RequestSpecification getRestClient(final Services service) {
+        RequestSpecification requestSpecification = getRestClient(service, "baseUrl");
+        return requestSpecification;
+    }
+
+    public static RequestSpecification getRestClient(final Services service, String urlPropertyName) {
+
+        if (Serenity.hasASessionVariableCalled("requestSpecification")) {
+            return Serenity.sessionVariableCalled("requestSpecification");
+        } else {
+            Map<String, String> serviceConfiguration =
+                    ConfigurationProvider.getEnvironmentConfiguration().get(service.getService());
+
+            RequestSpecification requestSpecification = createSerenityRest(serviceConfiguration, urlPropertyName);
+            Serenity.setSessionVariable("requestSpecification").to(requestSpecification);
+
+            return requestSpecification;
+        }
+    }
+
+    public static RequestSpecification getRestClient(final Services service, String urlPropertyName, ContentType contentType) {
+
+        if (Serenity.hasASessionVariableCalled("requestSpecification")) {
+            return Serenity.sessionVariableCalled("requestSpecification");
+        } else {
+            Map<String, String> serviceConfiguration =
+                    ConfigurationProvider.getEnvironmentConfiguration().get(service.getService());
+
+            RequestSpecification requestSpecification = createSerenityRest(serviceConfiguration, urlPropertyName, contentType);
+            Serenity.setSessionVariable("requestSpecification").to(requestSpecification);
+
+            return requestSpecification;
+        }
+    }
+
+    private static RequestSpecification createSerenityRest(final Map<String, String> serviceConfiguration,
+                                                           final String urlPropertyName,
+                                                           final ContentType contentType) {
+
+        String serviceUrl = serviceConfiguration.get(urlPropertyName);
+        Assertions.assertThat(serviceUrl)
+                .as(String.format("Property '%s' is not defined in service configuration", urlPropertyName))
+                .isNotNull();
+
+        RequestSpecification requestSpecification = SerenityRest
+                .given()
+                .header("accept", "application/json")
+                .contentType(contentType)
+                .baseUri(serviceUrl);
+
+        if (isDebugging()) {
+            requestSpecification.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+        }
+
+        return requestSpecification;
+    }
+
     private static RequestSpecification createSerenityRest(final Map<String, String> serviceConfiguration,
                                                            final String urlPropertyName) {
 
@@ -36,26 +93,5 @@ public class RestAssuredFactory {
         }
 
         return requestSpecification;
-
-    }
-
-    public static RequestSpecification getRestClient(final Services service) {
-        RequestSpecification requestSpecification = getRestClient(service, "baseUrl");
-        return requestSpecification;
-    }
-
-    public static RequestSpecification getRestClient(final Services service, String urlPropertyName) {
-
-        if (Serenity.hasASessionVariableCalled("requestSpecification")) {
-            return Serenity.sessionVariableCalled("requestSpecification");
-        } else {
-            Map<String, String> serviceConfiguration =
-                    ConfigurationProvider.getEnvironmentConfiguration().get(service.getService());
-
-            RequestSpecification requestSpecification = createSerenityRest(serviceConfiguration, urlPropertyName);
-            Serenity.setSessionVariable("requestSpecification").to(requestSpecification);
-
-            return requestSpecification;
-        }
     }
 }
